@@ -7,6 +7,16 @@ public abstract class Tile {
 	protected int resistance;
 	protected int life;
 	
+	public Tile(int resistance, int resistance_up, int resistance_down) {
+		this.resistance = resistance;
+		this.resistance_up = resistance_up;
+		this.resistance_down = resistance_down;
+	}
+	
+	public Tile() {
+		
+	}
+	
 	protected void turnDown() {
 		resistance = resistance_down;
 	}
@@ -30,4 +40,5 @@ public abstract class Tile {
 		life = resistance;
 	}
 	
+	protected abstract void discard();
 }

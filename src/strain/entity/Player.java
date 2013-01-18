@@ -46,9 +46,14 @@ public abstract class Player {
 					" in play!");
 		
 		score += tile.getVictoryPoints();
+		//tile.clear
 		organismsInPlay.remove(tile);
 		completedOrganisms.add(tile);
 		
 		return score >= 12;
+	}
+	
+	public Hand getHand() {
+		return hand;
 	}
 }

@@ -41,4 +41,16 @@ public class Organism extends Tile {
 	public int getVictoryPoints() {
 		return victoryPoints;
 	}
+	
+	public ArrayList<Tile> clearMembrane() {
+		ArrayList<Tile> membrane = this.membrane;
+		this.membrane = new ArrayList<Tile>();
+		return membrane;
+	}
+
+	@Override
+	protected void discard() {
+		// TODO Auto-generated method stub
+		
+	}
 }
