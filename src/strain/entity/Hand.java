@@ -2,6 +2,7 @@ package strain.entity;
 
 import java.util.ArrayList;
 import strain.exception.*;
+import strain.tile.Tile;
 
 /**
  * Simulates the player's hand of cards.
@@ -9,7 +10,7 @@ import strain.exception.*;
  *
  */
 public class Hand {
-	private ArrayList<Card> cards;
+	private ArrayList<Tile> tiles;
 	private int capacity = 4;
 	private int size = 0;
 	
@@ -19,12 +20,12 @@ public class Hand {
 	 * @throws FullHandException An exception is thrown if the player's hand
 	 * is already full.
 	 */
-	public void addCard(Card card) throws FullHandException {
+	public void addCard(Tile tile) throws FullHandException {
 		if (size >= capacity)
 			throw new FullHandException("Your hand is already full. In order " +
 					"to draw a card, you must first withdraw down to under " +
 					capacity + " cards.");
-		cards.add(card);
+		tiles.add(tile);
 	}
 	
 	/**
@@ -34,15 +35,15 @@ public class Hand {
 	 * @throws CardNotInHandException Thrown if the specified card is not in
 	 * the player's hand.
 	 */
-	public void discard(Card card) throws EmptyHandException, 
+	public void discard(Tile tile) throws EmptyHandException, 
 			CardNotInHandException {
 		if (size == 0)
 			throw new EmptyHandException("Your hand is empty. You must first " +
 					"draw a card before you can discard one.");
-		if (!cardInHand(card))
+		if (!tileInHand(tile))
 			throw new CardNotInHandException("Error! That card is not in the " +
 					"player's hand!");
-		cards.remove(card);
+		tiles.remove(tile);
 	}
 
 	/**
@@ -50,7 +51,7 @@ public class Hand {
 	 * @param card The card to check.
 	 * @return True if the card is in the player's hand; otherwise, false.
 	 */
-	private boolean cardInHand(Card card) {
-		return cards.contains(card);
+	private boolean tileInHand(Tile tile) {
+		return tiles.contains(tile);
 	}
 }
