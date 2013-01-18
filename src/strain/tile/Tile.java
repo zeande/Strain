@@ -6,6 +6,7 @@ public abstract class Tile {
 	private int resistance_down;
 	protected int resistance;
 	protected int life;
+	private boolean dormant = false;
 	
 	public Tile(int resistance, int resistance_up, int resistance_down) {
 		this.resistance = resistance;
@@ -41,4 +42,12 @@ public abstract class Tile {
 	}
 	
 	protected abstract void discard();
+	
+	public boolean isDormant() {
+		return dormant;
+	}
+	
+	public boolean isActive() {
+		return !dormant;
+	}
 }

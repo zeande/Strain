@@ -11,8 +11,7 @@ public class CytoplasmDeck extends Deck {
 	
 	@Override
 	public void discard(Tile tile) {
-		// TODO Auto-generated method stub
-
+		discard.add((Cytoplasm)tile);
 	}
 
 	@Override

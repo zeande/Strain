@@ -1,5 +1,7 @@
 package strain.tile;
 
+import strain.exception.TileNotActiveException;
+
 public class Cytoplasm extends Tile {
 
 	private int atp;
@@ -14,14 +16,38 @@ public class Cytoplasm extends Tile {
 	
 	@Override
 	protected boolean applyToxin(int toxin) {
-		// TODO Auto-generated method stub
-		return false;
+		this.life -= toxin;
+		return this.life < 1;
 	}
 
 	@Override
 	protected void discard() {
-		// TODO Auto-generated method stub
+		
 
 	}
+	
+	public int getAvailableToxin() {
+		return (isDormant() ? 0 : toxin);
+	}
+	
+	/**
+	 * Uses the cytoplasm's toxin.
+	 * @return
+	 * @throws TileNotActiveException
+	 */
+	public int useToxin() throws TileNotActiveException {
+		if (isDormant())
+			throw new TileNotActiveException("Dormant tiles cannot be used!");
+		return toxin;
+	}
 
+	public int getAvailableATP() {
+		return (isDormant() ? 0 : atp);
+	}
+	
+	public int useATP() throws TileNotActiveException {
+		if (isDormant())
+			throw new TileNotActiveException("Dormant tiles cannot be used!");
+		return atp;
+	}
 }

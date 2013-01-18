@@ -4,7 +4,7 @@ public class PetriDish extends Tile {
 
 	protected int atpCost;
 	
-	PetriDish(int atpCost) {
+	public PetriDish(int atpCost) {
 		this.atpCost = atpCost;
 	}
 	
