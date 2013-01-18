@@ -13,6 +13,13 @@ public class Hand {
 	private int size = 0;
 	
 	/**
+	 * Default constructor for objects of type Hand.
+	 */
+	public Hand() {
+		tiles = new ArrayList<Tile>();
+	}
+	
+	/**
 	 * Adds a card to the player's hand.
 	 * @param card The card to add.
 	 * @throws FullHandException An exception is thrown if the player's hand
@@ -30,18 +37,19 @@ public class Hand {
 	 * Discards the specified card from the player's hand.
 	 * @param card The card to discard.
 	 * @throws EmptyHandException Thrown if the player has no cards in hand.
-	 * @throws CardNotInHandException Thrown if the specified card is not in
+	 * @throws TileNotInHandException Thrown if the specified card is not in
 	 * the player's hand.
 	 */
-	public void discard(Tile card) throws EmptyHandException, 
-			CardNotInHandException {
+	public Tile discard(Tile card) throws EmptyHandException, 
+			TileNotInHandException {
 		if (size == 0)
 			throw new EmptyHandException("Your hand is empty. You must first " +
 					"draw a card before you can discard one.");
 		if (!cardInHand(card))
-			throw new CardNotInHandException("Error! That card is not in the " +
+			throw new TileNotInHandException("Error! That card is not in the " +
 					"player's hand!");
 		tiles.remove(card);
+		return card;
 	}
 
 	/**
