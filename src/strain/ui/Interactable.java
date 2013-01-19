@@ -6,4 +6,6 @@ public interface Interactable {
 	
 	public int getChoice(String message, int min, int max);
 	
+	public String getResponse(String message);
+	
 }
