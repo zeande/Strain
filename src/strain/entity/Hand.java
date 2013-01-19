@@ -36,12 +36,12 @@ public class Hand {
 	 * the player's hand.
 	 */
 	public void discard(Tile tile) throws EmptyHandException, 
-			CardNotInHandException {
+			TileNotInHandException {
 		if (size == 0)
 			throw new EmptyHandException("Your hand is empty. You must first " +
 					"draw a card before you can discard one.");
 		if (!tileInHand(tile))
-			throw new CardNotInHandException("Error! That card is not in the " +
+			throw new TileNotInHandException("Error! That card is not in the " +
 					"player's hand!");
 		tiles.remove(tile);
 	}
