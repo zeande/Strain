@@ -1,4 +1,4 @@
-package strain.sound;
+package yuuki.sound;
 
 /**
  * An AudioEngine specifically intended for playing sound effects one time

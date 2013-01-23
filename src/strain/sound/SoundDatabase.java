@@ -1,10 +1,10 @@
-package strain.sound;
+package yuuki.sound;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 
-import strain.file.CsvParser;
+import yuuki.file.CsvParser;
 
 /**
  * Maps indexes to sound file names. The sound database is loaded from disk and
@@ -21,7 +21,7 @@ class SoundDatabase {
 	/**
 	 * The location of the sound data file in the package structure.
 	 */
-	public static final String RESOURCE_LOCATION = "/strain/resource/data/";
+	public static final String RESOURCE_LOCATION = "/yuuki/resource/data/";
 	
 	/**
 	 * The map containing sound event indexes and sound file names.
@@ -55,23 +55,28 @@ class SoundDatabase {
 	}
 	
 	/**
+	 * Reads the definitions from the parser.
+	 */
+	private void readParser() throws IOException {
+		String[][] records = parser.read();
+		for (String[] r: records) {
+			String index = r[0];
+			String soundFile = r[1];
+			database.put(index, soundFile);
+		}
+	}
+	
+	/**
 	 * Loads the sound definitions into memory.
 	 */
 	private void readSoundDefinitions() {
 		String fileLocation = RESOURCE_LOCATION + DATA_FILE;
 		InputStream file = getClass().getResourceAsStream(fileLocation);
 		parser = new CsvParser(file, '\n', ',', '"');
-		String[][] records = null;
 		try {
-			records = parser.read();
+			readParser();
 		} catch (IOException e) {
-			System.out.println("Sound file format error");
-			return;
-		}
-		for (String[] r: records) {
-			String index = r[0];
-			String soundFile = r[1];
-			database.put(index, soundFile);
+			System.err.println("Sound file format error");
 		}
 	}
 	

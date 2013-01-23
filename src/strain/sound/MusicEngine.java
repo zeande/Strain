@@ -1,4 +1,4 @@
-package strain.sound;
+package yuuki.sound;
 
 /**
  * An AudioEngine intended for playing long tracks that loop. Only one track
@@ -10,6 +10,24 @@ public class MusicEngine extends AudioEngine {
 	 * The currently playing music.
 	 */
 	private SoundPlayer musicPlayer;
+	
+	/**
+	 * The name of the currently playing track.
+	 */
+	private String track = null;
+	
+	/**
+	 * Spawns a player thread.
+	 * 
+	 * @param soundFile The name of the file to play.
+	 * @param restart Whether to restart the current player if the requested
+	 * sound file is already playing.
+	 */
+	public void playSound(String soundFile, boolean restart) {
+		if (track == null || !track.equals(soundFile) || restart) {
+			playSound(soundFile);
+		}
+	}
 	
 	/**
 	 * Change the volume of the currently playing music.
@@ -38,6 +56,7 @@ public class MusicEngine extends AudioEngine {
 	 */
 	@Override
 	protected void spawnPlayerThread(String soundFile) {
+		track = soundFile;
 		byte[] data = sounds.get(soundFile);
 		stopSound();
 		musicPlayer = new SoundPlayer(data, getVolume(), true);
