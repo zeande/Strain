@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import strain.exception.*;
 
 /**
- * Simulates the player's hand of cards.
+ * Simulates the player's hand of tiles.
  *
  */
 public class Hand {
@@ -20,44 +20,44 @@ public class Hand {
 	}
 	
 	/**
-	 * Adds a card to the player's hand.
-	 * @param card The card to add.
+	 * Adds a tile to the player's hand.
+	 * @param tile The tile to add.
 	 * @throws FullHandException An exception is thrown if the player's hand
 	 * is already full.
 	 */
-	public void addCard(Tile card) throws FullHandException {
+	public void addCard(Tile tile) throws FullHandException {
 		if (size >= capacity)
 			throw new FullHandException("Your hand is already full. In order " +
-					"to draw a card, you must first withdraw down to under " +
-					capacity + " cards.");
-		tiles.add(card);
+					"to draw a tile, you must first withdraw down to under " +
+					capacity + " tiles.");
+		tiles.add(tile);
 	}
 	
 	/**
-	 * Discards the specified card from the player's hand.
-	 * @param card The card to discard.
-	 * @throws EmptyHandException Thrown if the player has no cards in hand.
-	 * @throws TileNotInHandException Thrown if the specified card is not in
+	 * Discards the specified tile from the player's hand.
+	 * @param tile The tile to discard.
+	 * @throws EmptyHandException Thrown if the player has no tiles in hand.
+	 * @throws TileNotInHandException Thrown if the specified tile is not in
 	 * the player's hand.
 	 */
-	public Tile discard(Tile card) throws EmptyHandException, 
+	public Tile discard(Tile tile) throws EmptyHandException, 
 			TileNotInHandException {
 		if (size == 0)
 			throw new EmptyHandException("Your hand is empty. You must first " +
-					"draw a card before you can discard one.");
-		if (!cardInHand(card))
-			throw new TileNotInHandException("Error! That card is not in the " +
+					"draw a tile before you can discard one.");
+		if (!tileInHand(tile))
+			throw new TileNotInHandException("Error! That tile is not in the " +
 					"player's hand!");
-		tiles.remove(card);
-		return card;
+		tiles.remove(tile);
+		return tile;
 	}
 
 	/**
-	 * Checks whether the specified card is in the player's hand.
-	 * @param card The card to check.
-	 * @return True if the card is in the player's hand; otherwise, false.
+	 * Checks whether the specified tile is in the player's hand.
+	 * @param tile The tile to check.
+	 * @return True if the tile is in the player's hand; otherwise, false.
 	 */
-	private boolean cardInHand(Tile card) {
-		return tiles.contains(card);
+	private boolean tileInHand(Tile tile) {
+		return tiles.contains(tile);
 	}
 }
