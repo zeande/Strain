@@ -1,4 +1,4 @@
-package yuuki.sound;
+package strain.sound;
 
 /**
  * An AudioEngine intended for playing long tracks that loop. Only one track

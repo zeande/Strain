@@ -1,4 +1,4 @@
-package yuuki.sound;
+package strain.sound;
 
 /**
  * Combines the functionality of a MusicEngine and an EffectEngine into one

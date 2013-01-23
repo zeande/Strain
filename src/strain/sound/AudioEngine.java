@@ -1,4 +1,4 @@
-package yuuki.sound;
+package strain.sound;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

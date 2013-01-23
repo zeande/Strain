@@ -1,10 +1,10 @@
-package yuuki.sound;
+package strain.sound;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 
-import yuuki.file.CsvParser;
+import strain.file.CsvParser;
 
 /**
  * Maps indexes to sound file names. The sound database is loaded from disk and
