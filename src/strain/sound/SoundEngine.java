@@ -19,7 +19,7 @@ public class SoundEngine {
 	/**
 	 * The location of sound resource files.
 	 */
-	public static final String RESOURCE_LOCATION = "/yuuki/resource/audio/";
+	public static final String RESOURCE_LOCATION = "/strain/resource/audio/";
 	
 	/**
 	 * Keeps track of sound index to sound file mappings.

@@ -21,7 +21,7 @@ class SoundDatabase {
 	/**
 	 * The location of the sound data file in the package structure.
 	 */
-	public static final String RESOURCE_LOCATION = "/yuuki/resource/data/";
+	public static final String RESOURCE_LOCATION = "/strain/resource/data/";
 	
 	/**
 	 * The map containing sound event indexes and sound file names.
