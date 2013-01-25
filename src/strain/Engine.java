@@ -2,6 +2,7 @@ package strain;
 
 import strain.sound.SoundEngine;
 import strain.ui.Interactable;
+import strain.ui.TextEngine;
 import strain.deck.CytoplasmDeck;
 import strain.deck.OrganismDeck;
 import strain.deck.PetriDishDeck;
@@ -27,6 +28,7 @@ public class Engine {
 		organismDeck = new OrganismDeck();
 		cytoplasmDeck = new CytoplasmDeck();
 		petriDishDeck = new PetriDishDeck();
+		ui = new TextEngine();
 	}
 	
 }
