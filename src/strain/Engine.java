@@ -17,11 +17,11 @@ public class Engine {
 	public static void main(String[] args) {
 		
 		Engine game = new Engine();
-		game.initialize();
-		
-		
+		game.initialize();		
 		SoundEngine music = new SoundEngine();
 		music.playMusic("INTRO_MUSIC");
+
+		int players = ui.getChoice("How many players? > ", 3, 7);
 	}
 	
 	public void initialize() {

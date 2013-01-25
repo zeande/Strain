@@ -20,7 +20,7 @@ public class TextEngine implements Interactable {
 		boolean valid = false;
 		while (!valid) {
 			try {
-				scan.nextInt();
+				choice = scan.nextInt();
 			} catch (Exception e) {
 				choice = min - 1;
 				scan = new Scanner(System.in);
@@ -36,7 +36,7 @@ public class TextEngine implements Interactable {
 
 	@Override
 	public int getChoice(String message, int min, int max) {
-		System.out.println(message);
+		System.out.print(message);
 		return getChoice(min, max);
 	}
 
