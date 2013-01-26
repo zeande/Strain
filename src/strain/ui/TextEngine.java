@@ -2,15 +2,18 @@ package strain.ui;
 
 import java.util.Scanner;
 
+import strain.Engine;
+import strain.sound.SoundEngine;
+
 
 
 public class TextEngine implements Interactable {
 
-	Scanner scan;
+	private SoundEngine soundEngine;
+	private Scanner scan;
 	
-	public TextEngine() {
+	public TextEngine(Engine game) {
 		scan = new Scanner(System.in);
-		initialize();
 	}
 	
 	
@@ -48,13 +51,8 @@ public class TextEngine implements Interactable {
 
 	@Override
 	public void initialize() {
-		System.out.println("This is the game of:\n");
-		System.out.println(" _____ _             _       \n" + 
-						   "/  ___| |           (_)\n" +      
-				           "\\ `--.| |_ _ __ __ _ _ _ __\n" +   
-				           " `--. \\ __| '__/ _` | | '_ \\\n" +  
-				           "/\\__/ / |_| | | (_| | | | | |\n" + 
-				           "\\____/ \\__|_|  \\__,_|_|_| |_|)\n");
+		soundEngine = new SoundEngine();
+		soundEngine.playMusic("INTRO_MUSIC");
 	}
 
 	@Override
@@ -65,8 +63,14 @@ public class TextEngine implements Interactable {
 
 	@Override
 	public void switchToIntroScreen() {
-		// TODO Auto-generated method stub
-
+		System.out.println("This is the game of:\n");
+		System.out.println(" _____ _             _       \n" + 
+						   "/  ___| |           (_)\n" +      
+				           "\\ `--.| |_ _ __ __ _ _ _ __\n" +   
+				           " `--. \\ __| '__/ _` | | '_ \\\n" +  
+				           "/\\__/ / |_| | | (_| | | | | |\n" + 
+				           "\\____/ \\__|_|  \\__,_|_|_| |_|\n");
+		
 	}
 
 }
