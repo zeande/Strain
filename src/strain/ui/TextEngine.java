@@ -9,16 +9,23 @@ import strain.sound.SoundEngine;
 
 public class TextEngine implements Interactable {
 
+	/**
+	 * The sound engine used to play background music and effects.
+	 */
 	private SoundEngine soundEngine;
+	
+	/**
+	 * A Scanner object to get user input.
+	 */
 	private Scanner scan;
 	
 	public TextEngine(Engine game) {
 		scan = new Scanner(System.in);
 	}
 	
-	
 	@Override
 	public int getChoice(int min, int max) {
+		scan = new Scanner(System.in);
 		int choice = min - 1;
 		boolean valid = false;
 		while (!valid) {
@@ -30,8 +37,8 @@ public class TextEngine implements Interactable {
 			}
 			valid = (choice >= min && choice <= max);
 			if (!valid) {
-				System.out.println("Error! Please enter an integer between " +
-						min + " and " + max + ".");
+				System.out.print("Error! Please enter an integer between " +
+						min + " and " + max + " > ");
 			}
 		}
 		return choice;
@@ -39,12 +46,14 @@ public class TextEngine implements Interactable {
 
 	@Override
 	public int getChoice(String message, int min, int max) {
+		scan = new Scanner(System.in);
 		System.out.print(message);
 		return getChoice(min, max);
 	}
 
 	@Override
 	public String getResponse(String message) {
+		scan = new Scanner(System.in);
 		System.out.print(message);
 		return scan.nextLine();
 	}
@@ -72,5 +81,4 @@ public class TextEngine implements Interactable {
 				           "\\____/ \\__|_|  \\__,_|_|_| |_|\n");
 		
 	}
-
 }
