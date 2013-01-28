@@ -1,6 +1,7 @@
 package strain.entity;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import strain.exception.*;
 import strain.tile.Tile;
 
@@ -9,11 +10,17 @@ import strain.tile.Tile;
  * @author zeande
  *
  */
-public class Hand {
+public class Hand implements Iterable<Tile> {
+	
 	private ArrayList<Tile> tiles;
 	private int capacity = 4;
 	private int size = 0;
 	
+	public Hand() {
+		tiles = new ArrayList<Tile>();
+	}
+	
+
 	/**
 	 * Adds a card to the player's hand.
 	 * @param card The card to add.
@@ -26,6 +33,7 @@ public class Hand {
 					"to draw a card, you must first withdraw down to under " +
 					capacity + " cards.");
 		tiles.add(tile);
+		size++;
 	}
 	
 	/**
@@ -44,6 +52,7 @@ public class Hand {
 			throw new TileNotInHandException("Error! That card is not in the " +
 					"player's hand!");
 		tiles.remove(tile);
+		size--;
 	}
 
 	/**
@@ -53,5 +62,10 @@ public class Hand {
 	 */
 	private boolean tileInHand(Tile tile) {
 		return tiles.contains(tile);
+	}
+
+	@Override
+	public Iterator<Tile> iterator() {
+		return tiles.iterator();
 	}
 }
