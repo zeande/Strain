@@ -44,10 +44,6 @@ public abstract class Character {
 		return drawCount;
 	}
 
-	// public Hand getHand() {
-	// return hand;
-	// }
-
 	public abstract void performAwakenPhase();
 
 	public abstract void performEvolvePhase();
@@ -94,7 +90,7 @@ public abstract class Character {
 					+ " in play!");
 
 		score += tile.getVictoryPoints();
-		// tile.clear
+
 		organismsInPlay.remove(tile);
 		completedOrganisms.add(tile);
 	}

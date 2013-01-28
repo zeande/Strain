@@ -12,10 +12,10 @@ import strain.ui.TextEngine;
 
 public class Engine implements Runnable {
 
-	public static CytoplasmDeck cytoplasmDeck;
 	/**
 	 * The decks of tiles for the game.
 	 */
+	public static CytoplasmDeck cytoplasmDeck;
 	public static OrganismDeck organismDeck;
 	public static PetriDishDeck petriDishDeck;
 

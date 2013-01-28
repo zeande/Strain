@@ -12,8 +12,6 @@ import strain.tile.Tile;
 /**
  * Simulates the player's hand of cards.
  * 
- * @author zeande
- * 
  */
 public class Hand implements Iterable<Tile> {
 
