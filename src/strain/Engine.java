@@ -20,6 +20,9 @@ public class Engine implements Runnable {
 	
 	public static final int POINTS_TO_WIN = 12;
 	
+	/**
+	 * Indicates the phase
+	 */
 	public static String phase;
 	
 	/**
