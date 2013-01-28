@@ -1,7 +1,7 @@
 package strain.exception;
 
-public class FullHandException extends Exception{
-	
+public class FullHandException extends Exception {
+
 	/**
 	 * Automatically generated serial version UID.
 	 */

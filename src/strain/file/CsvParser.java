@@ -10,34 +10,38 @@ import java.util.ArrayList;
  * Reads a CSV file.
  */
 public class CsvParser {
-	
+
 	/**
 	 * The character that delimits field.
 	 */
 	private char fieldDelimiter;
-	
+
 	/**
 	 * The character that separates fields.
 	 */
 	private char fieldSeparator;
-	
+
 	/**
 	 * The character that separates records.
 	 */
 	private char recordSeparator;
-	
+
 	/**
 	 * The stream being read for CSV data.
 	 */
 	private BufferedReader stream;
-	
+
 	/**
 	 * Creates a new CsvParser.
 	 * 
-	 * @param stream The stream that has CSV data.
-	 * @param recordSeparator The character that separates record.
-	 * @param fieldSeparator The character that separates fields.
-	 * @param fieldDelimiter The character that delimits field data.
+	 * @param stream
+	 *            The stream that has CSV data.
+	 * @param recordSeparator
+	 *            The character that separates record.
+	 * @param fieldSeparator
+	 *            The character that separates fields.
+	 * @param fieldDelimiter
+	 *            The character that delimits field data.
 	 */
 	public CsvParser(InputStream stream, char recordSeparator,
 			char fieldSeparator, char fieldDelimiter) {
@@ -46,7 +50,7 @@ public class CsvParser {
 		this.fieldSeparator = fieldSeparator;
 		this.fieldDelimiter = fieldDelimiter;
 	}
-	
+
 	/**
 	 * Closes the stream.
 	 */
@@ -57,27 +61,12 @@ public class CsvParser {
 			System.err.println("Stream couldn't close");
 		}
 	}
-	
-	/**
-	 * Parses all the CSV data at once.
-	 * 
-	 * @return A two-dimensional array containing all records.
-	 */
-	public String[][] read() throws IOException {
-		ArrayList<String[]> records = new ArrayList<String[]>();
-		String recordLine = null;
-		while ((recordLine = readRecord()) != null) {
-			if (recordLine.charAt(0) != '#') {
-				records.add(parseLine(recordLine));
-			}
-		}
-		return records.toArray(new String[0][]);
-	}
-	
+
 	/**
 	 * Parses a field to only contain the delimited data.
 	 * 
-	 * @param rawField The field data directly from the split.
+	 * @param rawField
+	 *            The field data directly from the split.
 	 * 
 	 * @return The delimited field data only.
 	 */
@@ -98,23 +87,40 @@ public class CsvParser {
 		}
 		return buffer.toString();
 	}
-	
+
 	/**
 	 * Parses a record line into a series of fields.
 	 * 
-	 * @param line The String containing the record.
+	 * @param line
+	 *            The String containing the record.
 	 * 
 	 * @return The fields from the record.
 	 */
 	private String[] parseLine(String line) {
 		ArrayList<String> fields = new ArrayList<String>();
 		String[] rawFields = line.split("" + fieldSeparator);
-		for (String rf: rawFields) {
+		for (String rf : rawFields) {
 			fields.add(parseField(rf));
 		}
 		return fields.toArray(new String[0]);
 	}
-	
+
+	/**
+	 * Parses all the CSV data at once.
+	 * 
+	 * @return A two-dimensional array containing all records.
+	 */
+	public String[][] read() throws IOException {
+		ArrayList<String[]> records = new ArrayList<String[]>();
+		String recordLine = null;
+		while ((recordLine = readRecord()) != null) {
+			if (recordLine.charAt(0) != '#') {
+				records.add(parseLine(recordLine));
+			}
+		}
+		return records.toArray(new String[0][]);
+	}
+
 	/**
 	 * Reads the next record. The stream is read until either the record
 	 * separator character or the end of the stream is reached.
@@ -137,7 +143,7 @@ public class CsvParser {
 				}
 			}
 		} while (nextByte != -1 && nextChar != recordSeparator);
-		return (buffer != null) ? buffer.toString() : null;
+		return buffer != null ? buffer.toString() : null;
 	}
-	
+
 }

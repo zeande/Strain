@@ -1,7 +1,7 @@
 package strain.exception;
 
 public class TileNotInHandException extends Exception {
-	
+
 	/**
 	 * Automatically generated serial version UID.
 	 */

@@ -15,6 +15,13 @@ public class PlayerCharacter extends Character {
 	}
 
 	@Override
+	public void drawTiles() {
+		for (int i = 0; i < getDrawCount(); i++) {
+			// TODO Implement a way to draw tiles
+		}
+	}
+
+	@Override
 	protected void endTurn() {
 		// TODO Auto-generated method stub
 
@@ -31,19 +38,12 @@ public class PlayerCharacter extends Character {
 	@Override
 	public void performEvolvePhase() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void performShedPhase() {
 		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public void drawTiles() {
-		for (int i = 0; i < getDrawCount(); i++) {
-			// TODO Implement a way to draw tiles
-		}
 	}
 }

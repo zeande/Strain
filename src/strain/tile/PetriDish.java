@@ -3,11 +3,11 @@ package strain.tile;
 public class PetriDish extends Tile {
 
 	protected int atpCost;
-	
+
 	public PetriDish(int atpCost) {
 		this.atpCost = atpCost;
 	}
-	
+
 	@Override
 	protected boolean applyToxin(int toxin) {
 		life -= toxin;
@@ -17,6 +17,6 @@ public class PetriDish extends Tile {
 	@Override
 	protected void discard() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

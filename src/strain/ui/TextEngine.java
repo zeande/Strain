@@ -3,26 +3,45 @@ package strain.ui;
 import java.util.Scanner;
 
 import strain.Engine;
-import strain.sound.SoundEngine;
 import strain.entity.Character;
-
+import strain.sound.SoundEngine;
 
 public class TextEngine implements Interactable {
+
+	/**
+	 * A Scanner object to get user input.
+	 */
+	private Scanner scan;
 
 	/**
 	 * The sound engine used to play background music and effects.
 	 */
 	private SoundEngine soundEngine;
-	
-	/**
-	 * A Scanner object to get user input.
-	 */
-	private Scanner scan;
-	
+
 	public TextEngine(Engine game) {
 		scan = new Scanner(System.in);
 	}
-	
+
+	public void displayPhase(char c) {
+		switch (c) {
+		case 'A':
+			System.out.println("\nAWAKEN PHASE\n");
+			break;
+		case 'E':
+			System.out.println("\nEVOLVE PHASE\n");
+			break;
+		case 'S':
+			System.out.println("\nSHED PHASE\n");
+			break;
+		}
+	}
+
+	@Override
+	public void displayWinner(Character winner) {
+		System.out.println("\n\nGame Over!\n\n");
+		System.out.println(winner + " won!\n\n");
+	}
+
 	@Override
 	public int getChoice(int min, int max) {
 		scan = new Scanner(System.in);
@@ -35,10 +54,10 @@ public class TextEngine implements Interactable {
 				choice = min - 1;
 				scan = new Scanner(System.in);
 			}
-			valid = (choice >= min && choice <= max);
+			valid = choice >= min && choice <= max;
 			if (!valid) {
-				System.out.print("Error! Please enter an integer between " +
-						min + " and " + max + " > ");
+				System.out.print("Error! Please enter an integer between "
+						+ min + " and " + max + " > ");
 			}
 		}
 		return choice;
@@ -73,29 +92,12 @@ public class TextEngine implements Interactable {
 	@Override
 	public void switchToIntroScreen() {
 		System.out.println("This is the game of:\n");
-		System.out.println(" _____ _             _       \n" + 
-						   "/  ___| |           (_)\n" +      
-				           "\\ `--.| |_ _ __ __ _ _ _ __\n" +   
-				           " `--. \\ __| '__/ _` | | '_ \\\n" +  
-				           "/\\__/ / |_| | | (_| | | | | |\n" + 
-				           "\\____/ \\__|_|  \\__,_|_|_| |_|\n");
-		
-	}
+		System.out.println(" _____ _             _       \n"
+				+ "/  ___| |           (_)\n"
+				+ "\\ `--.| |_ _ __ __ _ _ _ __\n"
+				+ " `--. \\ __| '__/ _` | | '_ \\\n"
+				+ "/\\__/ / |_| | | (_| | | | | |\n"
+				+ "\\____/ \\__|_|  \\__,_|_|_| |_|\n");
 
-	public void displayPhase(char c) {
-		switch (c) {
-		case 'A': System.out.println("\nAWAKEN PHASE\n");
-				break;
-		case 'E': System.out.println("\nEVOLVE PHASE\n");
-				break;
-		case 'S': System.out.println("\nSHED PHASE\n");
-				break;
-		}
-	}
-
-	@Override
-	public void displayWinner(Character winner) {
-		System.out.println("\n\nGame Over!\n\n");
-		System.out.println(winner + " won!\n\n");
 	}
 }

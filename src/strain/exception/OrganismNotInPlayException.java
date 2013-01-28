@@ -1,7 +1,7 @@
 package strain.exception;
 
-public class OrganismNotInPlayException extends Exception{
-	
+public class OrganismNotInPlayException extends Exception {
+
 	/**
 	 * Automatically generated serial version UID.
 	 */

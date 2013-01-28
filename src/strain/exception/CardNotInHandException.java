@@ -1,7 +1,7 @@
 package strain.exception;
 
 public class CardNotInHandException extends Exception {
-	
+
 	/**
 	 * Automatically generated serial version UID.
 	 */
