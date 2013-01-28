@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Organism extends Tile {
 
 	private int victoryPoints = 0;
-	private ArrayList<Tile> membrane;
+	public ArrayList<Tile> membrane;
 	
 	public Organism(int victoryPoints) {
 		this.victoryPoints = victoryPoints;
@@ -53,4 +53,5 @@ public class Organism extends Tile {
 		// TODO Auto-generated method stub
 		
 	}
+	
 }

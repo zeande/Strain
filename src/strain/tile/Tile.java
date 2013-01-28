@@ -37,7 +37,8 @@ public abstract class Tile {
 	 */
 	protected abstract boolean applyToxin(int toxin);
 	
-	protected void reset() {
+	public void reset() {
+		turnUp();
 		life = resistance;
 	}
 	

@@ -1,5 +1,7 @@
 package strain.ui;
 
+import strain.entity.Character;
+
 /**
  * 
  * The Interactable interface is used with the Engine to provide a modular way
@@ -46,5 +48,9 @@ public interface Interactable {
 	 * Displays the game screen.
 	 */
 	public void switchToGameScreen();
+
+	public void displayPhase(char c);
+	
+	public void displayWinner(Character winner);
 	
 }

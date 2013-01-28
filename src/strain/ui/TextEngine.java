@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import strain.Engine;
 import strain.sound.SoundEngine;
-
+import strain.entity.Character;
 
 
 public class TextEngine implements Interactable {
@@ -80,5 +80,22 @@ public class TextEngine implements Interactable {
 				           "/\\__/ / |_| | | (_| | | | | |\n" + 
 				           "\\____/ \\__|_|  \\__,_|_|_| |_|\n");
 		
+	}
+
+	public void displayPhase(char c) {
+		switch (c) {
+		case 'A': System.out.println("\nAWAKEN PHASE\n");
+				break;
+		case 'E': System.out.println("\nEVOLVE PHASE\n");
+				break;
+		case 'S': System.out.println("\nSHED PHASE\n");
+				break;
+		}
+	}
+
+	@Override
+	public void displayWinner(Character winner) {
+		System.out.println("\n\nGame Over!\n\n");
+		System.out.println(winner + " won!\n\n");
 	}
 }
