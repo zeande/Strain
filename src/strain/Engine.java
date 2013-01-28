@@ -1,8 +1,6 @@
 package strain;
 
 import java.util.Random;
-
-import strain.sound.SoundEngine;
 import strain.ui.Interactable;
 import strain.ui.TextEngine;
 import strain.deck.CytoplasmDeck;
@@ -16,9 +14,13 @@ public class Engine implements Runnable {
 	/**
 	 * The decks of tiles for the game.
 	 */
-	private static OrganismDeck organismDeck;
-	private static CytoplasmDeck cytoplasmDeck;
-	private static PetriDishDeck petriDishDeck;
+	public static OrganismDeck organismDeck;
+	public static CytoplasmDeck cytoplasmDeck;
+	public static PetriDishDeck petriDishDeck;
+	
+	public static final int POINTS_TO_WIN = 12;
+	
+	public static String phase;
 	
 	/**
 	 * The interface object that the game will use.
@@ -71,9 +73,15 @@ public class Engine implements Runnable {
 	 * Game loop.
 	 */
 	private void playGame() {
-		while (!gameFinished) {
-			
+		int score;
+		while (true) {
+			score = players[turn].playTurn(ui);
+			gameFinished = (score >= POINTS_TO_WIN);
+			if (gameFinished)
+				break;
+			turn = (turn + 1) % players.length;
 		}
+		ui.displayWinner(players[turn]);
 	}
 
 	/**
