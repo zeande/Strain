@@ -3,13 +3,16 @@ package strain.entity;
 import java.util.ArrayList;
 import strain.exception.OrganismIncompleteException;
 import strain.exception.OrganismNotInPlayException;
-import strain.tile.Hand;
+import strain.entity.Hand;
 import strain.tile.Organism;
+import strain.tile.Tile;
+import strain.ui.Interactable;
 
 public abstract class Character {
 	
-	private int score;
-	private Hand hand;
+	private static final int DRAW_COUNT = 3;
+	protected int score;
+	protected Hand hand;
 	private ArrayList<Organism> organismsInPlay;
 	private ArrayList<Organism> completedOrganisms;
 	public String name;
@@ -22,9 +25,13 @@ public abstract class Character {
 		this.completedOrganisms = new ArrayList<Organism>();
 	}
 	
+	public String toString() {
+		return name;
+	}
+	
 	public abstract void declareBattle(Character opponent);
 	
-	public abstract void endTurn();
+	protected abstract void endTurn();
 	
 	/**
 	 * Scores the specified organism tile.
@@ -53,7 +60,44 @@ public abstract class Character {
 		return score >= 12;
 	}
 	
-	public Hand getHand() {
-		return hand;
+//	public Hand getHand() {
+//		return hand;
+//	}
+
+	/**
+	 * Executes a player's turn.
+	 * @return The score of the player upon finishing her turn.
+	 */
+	public int playTurn(Interactable ui) {
+		ui.displayPhase('A');
+		performAwakenPhase();
+		
+		ui.displayPhase('E');
+		performEvolvePhase();
+		
+		ui.displayPhase('S');
+		performShedPhase();
+		endTurn();
+		return score;
+	}
+	
+	public abstract void performAwakenPhase();
+	
+	public abstract void performEvolvePhase();
+	
+	public abstract void performShedPhase();
+	
+	public abstract void drawTiles();
+	
+	public int getDrawCount() {
+		
+		int drawCount = DRAW_COUNT;
+		for ( Organism org : organismsInPlay ) {
+			for ( @SuppressWarnings("unused") Tile t : org.membrane ) {
+				//TODO Implement something to get the draw count bonus.
+			}
+		}
+		
+		return drawCount;
 	}
 }
