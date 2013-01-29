@@ -100,4 +100,24 @@ public class TextEngine implements Interactable {
 				+ "\\____/ \\__|_|  \\__,_|_|_| |_|\n");
 
 	}
+
+	@Override
+	public char chooseDeck() {
+		char choice = ' ';
+		scan = new Scanner(System.in);
+		System.out.println("From which deck would you like to choose your card?");
+		
+		while ( "OCP".indexOf(choice) == -1 ) {
+			System.out.print("  (O)rganism deck\n" +
+					"  (C)ytoplasm deck\n" +
+					"  (P)etri Dish deck\n > ");
+			try {
+				choice = scan.nextLine().charAt(0);
+			} catch (Exception e) {
+				scan = new Scanner(System.in);
+				System.out.println("Error!");
+			}
+		}
+		return choice;
+	}
 }

@@ -31,11 +31,7 @@ public class Hand implements Iterable<Tile> {
 	 * @throws FullHandException
 	 *             An exception is thrown if the player's hand is already full.
 	 */
-	public void addCard(Tile tile) throws FullHandException {
-		if (size >= capacity)
-			throw new FullHandException("Your hand is already full. In order "
-					+ "to draw a card, you must first withdraw down to under "
-					+ capacity + " cards.");
+	public void addCard(Tile tile) {
 		tiles.add(tile);
 		size++;
 	}

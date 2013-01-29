@@ -61,5 +61,11 @@ public interface Interactable {
 	 * Displays the intro screen.
 	 */
 	public void switchToIntroScreen();
+	
+	/**
+	 * Lets the player choose which deck from which to draw.
+	 * @return A character representation of the deck choice. 
+	 */
+	public char chooseDeck();
 
 }

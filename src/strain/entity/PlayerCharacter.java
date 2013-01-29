@@ -1,5 +1,7 @@
 package strain.entity;
 
+import strain.Engine;
+import strain.exception.DeckEmptyException;
 import strain.tile.Tile;
 import strain.ui.Interactable;
 
@@ -19,7 +21,27 @@ public class PlayerCharacter extends Character {
 	public void drawTiles() {
 		int drawCount = getDrawCount();
 		for (int i = 0; i < drawCount; i++) {
-			
+			char d = ui.chooseDeck();
+			Tile newTile;
+			try {
+				newTile = takeTile(d);
+			} catch (DeckEmptyException e) {
+				System.out.println("Error! Deck is empty!");
+				e.printStackTrace();
+				return;
+			}
+			hand.addCard(newTile);
+		}
+	}
+
+	private Tile takeTile(char d) throws DeckEmptyException {
+		switch (d) {
+		case 'C': // Cytoplasm deck
+			return Engine.cytoplasmDeck.draw();
+		case 'P': // PetriDish deck
+			return Engine.petriDishDeck.draw();
+		default:  // Organism deck
+			return Engine.organismDeck.draw();
 		}
 	}
 
