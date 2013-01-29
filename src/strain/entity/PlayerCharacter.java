@@ -1,11 +1,12 @@
 package strain.entity;
 
 import strain.tile.Tile;
+import strain.ui.Interactable;
 
 public class PlayerCharacter extends Character {
 
-	public PlayerCharacter(String name) {
-		super(name);
+	public PlayerCharacter(String name, Interactable ui) {
+		super(name, ui);
 	}
 
 	@Override
@@ -16,8 +17,9 @@ public class PlayerCharacter extends Character {
 
 	@Override
 	public void drawTiles() {
-		for (int i = 0; i < getDrawCount(); i++) {
-			// TODO Implement a way to draw tiles
+		int drawCount = getDrawCount();
+		for (int i = 0; i < drawCount; i++) {
+			
 		}
 	}
 

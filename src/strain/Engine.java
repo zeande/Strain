@@ -64,7 +64,7 @@ public class Engine implements Runnable {
 		for (int i = 1; i <= numPlayers; i++) {
 			String name = ui.getResponse("Enter the name of player " + i
 					+ " > ");
-			players[i - 1] = new PlayerCharacter(name);
+			players[i - 1] = new PlayerCharacter(name, ui);
 		}
 		turn = new Random().nextInt(numPlayers);
 	}

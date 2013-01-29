@@ -16,11 +16,13 @@ public abstract class Character {
 	public String name;
 	private ArrayList<Organism> organismsInPlay;
 	protected int score;
+	protected Interactable ui;
 
-	public Character(String name) {
+	public Character(String name, Interactable ui) {
 		this.hand = new Hand();
 		this.name = name;
 		this.score = 0;
+		this.ui = ui;
 		this.organismsInPlay = new ArrayList<Organism>();
 		this.completedOrganisms = new ArrayList<Organism>();
 	}
