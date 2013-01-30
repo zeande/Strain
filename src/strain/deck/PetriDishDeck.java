@@ -16,7 +16,7 @@ public class PetriDishDeck extends Deck {
 	protected void initializeDeck() {
 		// TODO Make this more specific!
 		for (int i = 0; i < NO_CARDS; i++) {
-			discard(new PetriDish(1));
+			discard(new PetriDish("E.Coli",1,2,1));
 		}
 	}
 

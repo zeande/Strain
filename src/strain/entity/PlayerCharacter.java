@@ -30,6 +30,7 @@ public class PlayerCharacter extends Character {
 				e.printStackTrace();
 				return;
 			}
+			ui.showCard(newTile);
 			hand.addCard(newTile);
 		}
 	}

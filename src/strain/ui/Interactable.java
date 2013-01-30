@@ -1,6 +1,7 @@
 package strain.ui;
 
 import strain.entity.Character;
+import strain.tile.Tile;
 
 /**
  * 
@@ -67,5 +68,7 @@ public interface Interactable {
 	 * @return A character representation of the deck choice. 
 	 */
 	public char chooseDeck();
+
+	public void showCard(Tile newTile);
 
 }

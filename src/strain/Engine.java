@@ -92,6 +92,7 @@ public class Engine implements Runnable {
 			turn = (turn + 1) % players.length;
 		}
 		ui.displayWinner(players[turn]);
+		System.exit(0);
 	}
 
 	@Override

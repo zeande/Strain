@@ -5,6 +5,7 @@ import java.util.Scanner;
 import strain.Engine;
 import strain.entity.Character;
 import strain.sound.SoundEngine;
+import strain.tile.Tile;
 
 public class TextEngine implements Interactable {
 
@@ -119,5 +120,11 @@ public class TextEngine implements Interactable {
 			}
 		}
 		return choice;
+	}
+
+	@Override
+	public void showCard(Tile newTile) {
+		// TODO Auto-generated method stub
+		System.out.println(newTile);
 	}
 }
