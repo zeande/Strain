@@ -7,15 +7,13 @@ public abstract class Tile {
 	protected int resistance;
 	private int resistance_down;
 	private int resistance_up;
-
-	public Tile() {
-
-	}
-
-	public Tile(int resistance, int resistance_up, int resistance_down) {
+	protected String type;
+	
+	public Tile(String name, int resistance, int resistance_up, int resistance_down) {
 		this.resistance = resistance;
 		this.resistance_up = resistance_up;
 		this.resistance_down = resistance_down;
+		this.name = name;
 	}
 
 	/**
@@ -53,4 +51,6 @@ public abstract class Tile {
 	protected void turnUp() {
 		resistance = resistance_up;
 	}
+	
+	public abstract String toString();
 }
