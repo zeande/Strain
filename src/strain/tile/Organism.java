@@ -8,8 +8,10 @@ public class Organism extends Tile {
 	private int victoryPoints = 0;
 
 	public Organism(int victoryPoints) {
+		super("Organism",2,2,0);
 		this.victoryPoints = victoryPoints;
 		membrane = new ArrayList<Tile>();
+		this.type = "Organism";
 	}
 
 	@Override
@@ -57,4 +59,15 @@ public class Organism extends Tile {
 		return membrane.size() >= 8;
 	}
 
+	@Override
+	public String toString() {
+		String orgString = "************\n";
+		orgString +=       "* Organism *\n";
+		orgString +=       "*          *\n";
+		orgString +=       "*    " + victoryPoints + "     *\n";
+		orgString +=       "*          *\n";
+		orgString +=       "************\n";
+		return orgString;
+	}
+	
 }

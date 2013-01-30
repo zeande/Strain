@@ -8,7 +8,7 @@ public class Cytoplasm extends Tile {
 	private int toxin;
 
 	public Cytoplasm(String name, int atp, int toxin, int resistance) {
-		super(resistance, resistance, 1);
+		super(name, resistance, resistance, 1);
 		this.atp = atp;
 		this.toxin = toxin;
 		this.name = name;
@@ -49,5 +49,18 @@ public class Cytoplasm extends Tile {
 		if (isDormant())
 			throw new TileNotActiveException("Dormant tiles cannot be used!");
 		return toxin;
+	}
+
+	@Override
+	public String toString() {
+		String tileString = "*************\n";
+		tileString +=       "* Cytoplasm *\n";
+		tileString +=       "* " + (name + "       ").substring(0,9) + " *\n";
+		tileString +=       "*           *\n";
+		tileString +=       "*           *\n";
+		tileString +=       "*    " + resistance + "      *\n";
+		tileString +=       "*************\n";
+		
+		return tileString;
 	}
 }
