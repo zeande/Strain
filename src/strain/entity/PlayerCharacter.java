@@ -30,7 +30,7 @@ public class PlayerCharacter extends Character {
 				e.printStackTrace();
 				return;
 			}
-			ui.showCard(newTile);
+			ui.showTile(newTile);
 			hand.addCard(newTile);
 		}
 	}
@@ -63,12 +63,10 @@ public class PlayerCharacter extends Character {
 	@Override
 	public void performEvolvePhase() {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void performShedPhase() {
 		// TODO Auto-generated method stub
-
 	}
 }

@@ -58,13 +58,13 @@ public abstract class Character {
 	 * @return The score of the player upon finishing her turn.
 	 */
 	public int playTurn(Interactable ui) {
-		ui.displayPhase('A');
+		ui.setPhase('A');
 		performAwakenPhase();
 
-		ui.displayPhase('E');
+		ui.setPhase('E');
 		performEvolvePhase();
 
-		ui.displayPhase('S');
+		ui.setPhase('S');
 		performShedPhase();
 		endTurn();
 		return score;
@@ -100,5 +100,9 @@ public abstract class Character {
 	@Override
 	public String toString() {
 		return name;
+	}
+	
+	public Hand getHand() {
+		return this.hand;
 	}
 }

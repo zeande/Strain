@@ -11,7 +11,7 @@ import strain.tile.Tile;
  */
 public interface Interactable {
 
-	public void displayPhase(char c);
+	public void setPhase(char c);
 
 	public void displayWinner(Character winner);
 
@@ -69,6 +69,6 @@ public interface Interactable {
 	 */
 	public char chooseDeck();
 
-	public void showCard(Tile newTile);
+	public void showTile(Tile newTile);
 
 }

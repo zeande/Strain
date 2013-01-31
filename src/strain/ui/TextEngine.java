@@ -23,7 +23,7 @@ public class TextEngine implements Interactable {
 		scan = new Scanner(System.in);
 	}
 
-	public void displayPhase(char c) {
+	public void setPhase(char c) {
 		switch (c) {
 		case 'A':
 			System.out.println("\nAWAKEN PHASE\n");
@@ -123,8 +123,15 @@ public class TextEngine implements Interactable {
 	}
 
 	@Override
-	public void showCard(Tile newTile) {
+	public void showTile(Tile newTile) {
 		// TODO Auto-generated method stub
 		System.out.println(newTile);
+	}
+	
+	public void showTiles(Character c) {
+		System.out.println("These are your tiles:\n");
+		for (Tile t : c.getHand()) {
+			System.out.println(t);
+		}
 	}
 }
