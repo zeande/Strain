@@ -2,8 +2,10 @@ package strain.entity;
 
 import strain.Engine;
 import strain.exception.DeckEmptyException;
+import strain.tile.Organism;
 import strain.tile.Tile;
 import strain.ui.Interactable;
+import strain.ui.TextEngine;
 
 public class PlayerCharacter extends Character {
 
@@ -54,9 +56,12 @@ public class PlayerCharacter extends Character {
 
 	@Override
 	public void performAwakenPhase() {
-		for (Tile t : hand) {
-			t.reset();
+		for ( Organism o : organismsInPlay ) {
+			for (Tile t : o.membrane) {
+				t.reset();
+			}
 		}
+		((TextEngine)ui).showTiles(this);
 		drawTiles();
 	}
 

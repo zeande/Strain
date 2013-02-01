@@ -10,11 +10,11 @@ import strain.ui.Interactable;
 
 public abstract class Character {
 
-	private static final int DRAW_COUNT = 3;
-	private ArrayList<Organism> completedOrganisms;
+	protected static final int DRAW_COUNT = 3;
+	protected ArrayList<Organism> completedOrganisms;
 	protected Hand hand;
 	public String name;
-	private ArrayList<Organism> organismsInPlay;
+	protected ArrayList<Organism> organismsInPlay;
 	protected int score;
 	protected Interactable ui;
 

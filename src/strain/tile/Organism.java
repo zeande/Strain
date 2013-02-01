@@ -61,12 +61,13 @@ public class Organism extends Tile {
 
 	@Override
 	public String toString() {
-		String orgString = "************\n";
-		orgString +=       "* Organism *\n";
-		orgString +=       "*          *\n";
-		orgString +=       "*    " + victoryPoints + "     *\n";
-		orgString +=       "*          *\n";
-		orgString +=       "************\n";
+		String orgString = "*************\n";
+		orgString +=       "* Organism  *\n";
+		orgString +=       "*           *\n";
+		orgString +=       "*           *\n";
+		orgString +=       "*     " + victoryPoints + "     *\n";
+		orgString +=       "*           *\n";
+		orgString +=       "*************\n";
 		return orgString;
 	}
 	
